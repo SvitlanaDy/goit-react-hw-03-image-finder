@@ -1,0 +1,14 @@
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loader {
+    border: 8px solid rgba(31, 29, 29, 0.1);
+    border-left-color: #9edcf3;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+   
+  }
