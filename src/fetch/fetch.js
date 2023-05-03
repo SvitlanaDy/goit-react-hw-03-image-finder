@@ -17,8 +17,16 @@ const API_KEY = '33867943-5c281079387beab43eaa259d6';
 //   };
 const BASE_URL = 'https://pixabay.com/api/';
 
+
 export function getImages(searchQuery = '', page = 1) {
   return fetch(
     `${BASE_URL}?q=${searchQuery}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
-  ).then(res => res.json());
+  )
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    });
 }
