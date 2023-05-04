@@ -70,7 +70,8 @@ class App extends Component{
     const { isShowModal, status, images, selectedImage } = this.state;
     let imageGallery = null;
   
-    if (status === 'resolved' && images.length > 0) {
+    if (images.length > 0) 
+    {
       imageGallery = (
         <>
           <ImageGallery images={images} onSelect={this.onSelectImage} />
@@ -79,7 +80,7 @@ class App extends Component{
           )}
         </>
       );
-    } else if (status === 'resolved' && images.length === 0) {
+    } else if (images.length === 0) {
       imageGallery = (
         <h1 className={css.appHeader}> Nothing is here, pls enter smth else</h1>
       );

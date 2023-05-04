@@ -10,26 +10,34 @@ export default class Modal extends Component {
 
 
     componentDidMount(){
-    console.log('Modal componentDidMount');
-    window.addEventListener('keydown' , e => {
-        console.log(e.code);
-        if(e.code === 'Escape'){
-            console.log('Push ESC, close the Modal window');
-        }
-    });
-
+    // console.log('Modal componentDidMount');
+    // window.addEventListener('keydown' , e => {
+    //     console.log(e.code);
+    //     if(e.code === 'Escape'){
+    //         console.log('Push ESC, close the Modal window');
+    //         this.props.onClose();
+    //     }
+    // });
+    window.addEventListener('keydown', this.handleKeyDown);
     }
 
 
 componentWillUnmount(){
-    console.log('Modal componentWilUnmount');
-    window.removeEventListener('keydown' , e => {
-        console.log(e.code);
-        if(e.code === 'Escape'){
-            console.log('Push ESC, close the Modal window');
-        }
-    });
+    // console.log('Modal componentWilUnmount');
+    // window.removeEventListener('keydown' , e => {
+    //     console.log(e.code);
+    //     if(e.code === 'Escape'){
+    //         console.log('Push ESC, close the Modal window');
+    //     }
+    // });
+    window.removeEventListener('keydown', this.handleKeyDown);
 }
+handleKeyDown = e => {
+  if (e.code === 'Escape') {
+    this.props.onClose();
+  }
+};
+
 handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       this.props.onClose();
